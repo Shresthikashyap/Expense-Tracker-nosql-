@@ -53,7 +53,7 @@ app.use((req,res) => {
     res.sendFile(path.join(_dirname,`public/${req.url}`));
 })
 
-mongoose.connect('mongodb+srv://sk2929542:1234shit@cluster0.7ypej7u.mongodb.net/ExpenseTracker?retryWrites=true&w=majority')
+mongoose.connect(process.env.MONGODB_URI)
 .then(()=>{
     app.listen(3000,()=>{
         console.log('server is listening');
