@@ -55,7 +55,7 @@ app.use((req,res) => {
 
 mongoose.connect('mongodb+srv://sk2929542:1234shit@cluster0.7ypej7u.mongodb.net/expense-tracker?retryWrites=true&w=majority')
 .then(()=>{
-    app.listen(3000,()=>{
+    app.listen(3000,'172.31.43.194',()=>{
         console.log('server is listening');
     })
 })
