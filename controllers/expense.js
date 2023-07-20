@@ -36,8 +36,8 @@ const addExpense = async(req, res) => {
 const getExpenses = async(req, res) => {
   
     try {
-    console.log('get it babe');
-    const expenses = await Expense.find({userId: req.user._id});
+    
+    const expenses = await Expense.find({userId: req.user.id});
     console.log(expenses)
 
     res.status(200).json({ expenses, success: true });
@@ -119,11 +119,16 @@ const deleteExpense = async(req, res) => {
       return res.status(404).json({ err: 'Expense not found' });  
     }  
     
-    await Expense.deleteOne({ userId: req.user.id },{id: expenseId});
+    const deletedExpense = await Expense.deleteOne({_id: expenseId});
+    console.log(deletedExpense);
     
     const totalExpense = Number(req.user.totalExpense) - Number(expense.cost);
     
-    await User.findOneAndUpdate({_id: req.user.id},{totalExpense:totalExpense});
+    if(totalExpense<0){
+      await User.findOneAndUpdate({_id: req.user.id},{totalExpense:0});
+    }else{
+      await User.findOneAndUpdate({_id: req.user.id},{totalExpense:totalExpense});
+    }
 
     res.status(200).json({ success:true });
   } 

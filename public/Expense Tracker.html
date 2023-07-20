@@ -102,11 +102,10 @@ th,td{
               <button type="submit" class="btn btn-success btn-md" >Add Expense</button>
             </div>
           </div>
-          
-            <button type="submit" class="btn btn-primary" style="position: fixed; width:10%; top: 20px; right: 20px;" onclick="logOut()">Log out</button>
-        
           </div>
         </form>
+        <button class="btn btn-primary" onclick="logOut()" style="position: fixed; top: 15px; right: 15px;">Log Out</button>       
+
               <div class="tracker">
                <h3> Expenses :  <div onclick="download()" id="downloadexpense"></div>
                                 <div onclick="downloadedFiles()" id="downloadedFiles"></div></h3>
@@ -120,12 +119,13 @@ th,td{
               <table id="table"></table>
 
               
-              <div id = 'error' style="font-weight:600;color: rgb(172, 22, 22);" ></div>
+              <div id = 'error' style="font-weight:600;color: rgb(172, 22, 22); "></div>
             
         </div> 
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.2/axios.min.js"></script>      
     <script src="./js/Expense Tracker.js"></script>
  
+
 </body>
 </html>
