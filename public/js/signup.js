@@ -10,7 +10,7 @@ const save = async(event)=>{
     name,email,password
     }
        
-        let response = await axios.post("http://localhost:3000/users/signup",obj);
+        let response = await axios.post("http://13.51.156.137:3000/users/signup",obj);
        // console.log(obj.id)
         localStorage.setItem('token',response.data.token)
         window.location.href = 'Expense Tracker.html';

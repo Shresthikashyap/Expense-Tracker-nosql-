@@ -86,11 +86,19 @@ const updateExpense = async(req,res) =>{
     }
 
     const expense = await Expense.findById(userId);
-   console.log('expense id ',expense._id);
-    const {cost, desc, cat } = req.body;  
+    console.log('expense id ',expense._id);
+    const {cost, desc, cat } = req.body; 
+    
+    const updatedExpense = Number(req.user.totalExpense) - Number(expense.cost);
+    const totalExpense = Number(updatedExpense) + Number(cost);
+    if(totalExpense<0){
+      await User.findOneAndUpdate({_id: req.user.id},{totalExpense:0});
+    }else{
+      await User.findOneAndUpdate({_id: req.user.id},{totalExpense:totalExpense});
+    }
 
     const updatedExpenseDetail = await Expense.findOneAndUpdate({_id: expense._id},{ cost:cost, description:desc, category:cat},{ new: true }); 
-    console.log('happy')
+
     console.log(updatedExpenseDetail)
     res.status(201).json({ expense : updatedExpenseDetail });
 

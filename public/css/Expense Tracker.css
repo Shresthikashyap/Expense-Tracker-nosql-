@@ -1,0 +1,55 @@
+h3{
+    text-shadow:5px 5px 10px rgb(87, 85, 85);
+    padding-top: 3%;
+    padding-bottom: 1%;
+    color: rgb(0, 0, 0);
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ }
+ #message{
+   font-size: large;
+   color: rgb(211, 22, 22);
+ }
+ #leadership{
+  font-style: italic;
+  font-weight: 100;
+ }
+
+button {
+    margin-top: 6px;
+    margin-left:1px;
+  }
+
+.active{
+     float:left;
+  }
+
+.form-label{
+    color: rgb(61, 60, 60);
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+body{
+    font-size: large;
+    background-color: rgb(223, 192, 106);
+}
+.error{
+  color: rgb(218, 37, 37);
+}
+table {
+border-collapse: collapse;
+width: 100%;
+}
+
+td, th, tfoot{
+border: 2px solid black;
+padding: 8px;
+}
+
+th,tfoot{
+
+font-weight: 600;
+background-color: lightgrey;
+}
+
+th,td{
+text-align: center;  
+}
