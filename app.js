@@ -34,7 +34,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 //app.use(helmet());
 app.use(compression());
 //app.use(morgan('combined',{stream : accessLogStream}));
-app.use(express.static('public'));
+app.use(express.static('public', { 
+    dotfiles: 'ignore', 
+    index: false,
+    extensions: ['html', 'htm'] 
+  }));
 
 app.use('/users',userRoutes);
 
